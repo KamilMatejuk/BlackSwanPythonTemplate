@@ -13,9 +13,24 @@ paths:
             text/plain:
               schema:
                 type: string
+        401:
+          description: invalid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InvalidRequest"
       parameters:
         - name: name
           in: path
           required: true
           schema:
             type: string
+components:
+  schemas:
+    InvalidRequest:
+      type: object
+      properties:
+        error:
+          type: string
+        details:
+          type: string
